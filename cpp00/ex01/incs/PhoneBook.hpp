@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 19:14:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/25 19:14:25 by seungsle         ###   ########.fr       */
+/*   Created: 2022/07/25 19:14:18 by seungsle          #+#    #+#             */
+/*   Updated: 2022/07/25 21:19:01 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PHONEBOOK_CLASS_H
+# define PHONEBOOK_CLASS_H
+
+#include "Contact.hpp"
 #include <iostream>
 
-int main(int argc, char **argv) {
-	if (argc == 1) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	}
-	else if (argc >= 2) {
-		for (int i = 1; i < argc; ++i)
-		{
-			for (int j = 0; j < (int)strlen(argv[i]); ++j)
-			{
-				putchar(toupper(argv[i][j]));
-			}
-		}
-		std::cout << std::endl;
-	}
-}
+#define MAX_CAPACITY 8
+
+class PhoneBook {
+	private:
+		Contact _contacts[MAX_CAPACITY];
+		int _size;
+		enum _infoIndex {
+			firstName = 0,
+			lastName,
+			nickName,
+			phoneNumber,
+			darkestSecret
+		};
+	public:
+		PhoneBook();
+		~PhoneBook();
+		void add_contact(void);
+		void display_prompt(void);
+		void search_contact(void);
+};
+
+#endif
