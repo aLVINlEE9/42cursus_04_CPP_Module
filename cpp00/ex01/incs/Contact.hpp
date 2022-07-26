@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 19:14:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/26 14:24:36 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/07/26 14:42:48 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Contact {
 								std::string nickName, std::string phoneNumber, \
 								std::string darkestSecret, int index);
 		void display_contact(void);
+		void display_specific_contact(void);
 		std::string substr_info(std::string str);
 };
 

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 19:40:50 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/26 14:29:33 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/07/26 14:58:48 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	PhoneBook::add_contacts()
 {
-	_contacts[_size % 8] = Contact();
 
 	for (int i = firstName; i <= darkestSecret; i++)
 	{
@@ -29,7 +28,6 @@ void	PhoneBook::add_contacts()
 		else if (i == darkestSecret)
 			std::cout << "darkest secret : ";
 		std::cin >> _info[i];
-		std::cout << std::endl;
 	}
 	_contacts[_size % 8].add_contact(_info[0], _info[1], _info[2], _info[3], \
 										_info[4], _size % MAX_CAPACITY);
@@ -48,13 +46,21 @@ void	PhoneBook::display_prompt()
 
 void	PhoneBook::search_contact()
 {
-	std::string cmd;
+	int	index;
 	
 	PhoneBook::display_prompt();
 	while (1)
 	{
-		std::cin >> cmd;
-		break ;
+		std::cout << "please enter index you want to look (exit to '-1')" << std::endl;
+		std::cin >> index;
+		if (0 <= index && index < MAX_CAPACITY)
+		{
+			_contacts[index].display_specific_contact();
+		}
+		else if (-1 == index)
+			break ;
+		else
+			std::cout << "invalid index" << std::endl;;
 	}
 }
 
