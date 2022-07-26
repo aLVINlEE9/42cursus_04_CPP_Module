@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 19:37:15 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/25 20:31:04 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/07/26 13:58:30 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main() {
 		if (std::cin.eof() || !cmd.compare("EXIT"))
 			break ;
 		else if (!cmd.compare("ADD"))
-			phoneBook.add_contact();
+			phoneBook.add_contacts();
 		else if (!cmd.compare("SEARCH"))
 			phoneBook.search_contact();
 		else

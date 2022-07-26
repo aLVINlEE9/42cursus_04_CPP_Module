@@ -5,26 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/25 19:14:35 by seungsle          #+#    #+#              #
-#    Updated: 2022/07/25 19:14:36 by seungsle         ###   ########.fr        #
+#    Created: 2022/05/21 21:44:50 by jihoh             #+#    #+#              #
+#    Updated: 2022/07/26 12:50:55 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp
-OBJS = $(SRCS:.cpp=.o)
+
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
+SRCS := $(addprefix $(SRC_DIR), $(SRCS))
+OBJS =  $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+INCFLAGS = -I$(INC_DIR)
 
-NAME = main
+NAME = phonebook
+
+SRC_DIR = srcs/
+OBJ_DIR = objs/
+INC_DIR = incs/
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@ $(INCFLAGS)
+
+$(OBJ_DIR)%.o : $(SRC_DIR)%.cpp $(INC_DIR)*.hpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(INCFLAGS)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -rf $(NAME)
