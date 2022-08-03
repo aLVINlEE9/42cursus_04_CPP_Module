@@ -1,14 +1,19 @@
-#include <iostream>
-#include <ctime>
+// ifstream constructor.
+#include <iostream>     // std::cout
+#include <fstream>      // std::ifstream
 
-int main() {
-  std::time_t rawtime;
-	std::tm* timeinfo;
-	char buffer [18];
+int main () {
 
-	std::time(&rawtime);
-	timeinfo = std::localtime(&rawtime);
+  std::ifstream ifs ("test.txt", std::ifstream::in);
 
-	std::strftime(buffer,18,"[%Y%m%d_%H%M%S]",timeinfo);
-	std::cout << buffer << std::endl;
+  char c = ifs.get();
+
+  while (ifs.good()) {
+    std::cout << c;
+    c = ifs.get();
+  }
+
+  ifs.close();
+
+  return 0;
 }
