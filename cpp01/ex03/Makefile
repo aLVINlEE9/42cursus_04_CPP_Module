@@ -5,11 +5,10 @@
 #                                                     +:+ +:+         +:+      #
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/21 21:44:50 by jihoh             #+#    #+#              #
-#    Updated: 2022/08/02 18:32:38 by seungsle         ###   ########.fr        #
+#    Created: 2022/08/03 17:29:48 by seungsle          #+#    #+#              #
+#    Updated: 2022/08/03 17:29:50 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 SRCS := $(addprefix $(SRC_DIR), $(SRCS))

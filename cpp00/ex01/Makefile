@@ -5,11 +5,10 @@
 #                                                     +:+ +:+         +:+      #
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/21 21:44:50 by jihoh             #+#    #+#              #
-#    Updated: 2022/07/26 12:50:55 by seungsle         ###   ########.fr        #
+#    Created: 2022/08/03 17:30:43 by seungsle          #+#    #+#              #
+#    Updated: 2022/08/03 17:30:43 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
 SRCS := $(addprefix $(SRC_DIR), $(SRCS))
