@@ -6,7 +6,7 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 17:31:00 by seungsle          #+#    #+#              #
-#    Updated: 2022/08/03 17:31:01 by seungsle         ###   ########.fr        #
+#    Updated: 2022/08/03 17:42:08 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 INCFLAGS = -I$(INC_DIR)
 
-NAME = Harl
+NAME = HarlFilter
 
 SRC_DIR = srcs/
 OBJ_DIR = objs/

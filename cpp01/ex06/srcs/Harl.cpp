@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:57:56 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/03 17:41:52 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:41:32 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void Harl::error( void )
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl << std::endl;
 }
 
-void Harl::complain( std::string level )
+void Harl::complainFilter( std::string filter )
 {
 	std::string levels[] = {
 		"DEBUG",
@@ -61,8 +61,15 @@ void Harl::complain( std::string level )
 		&Harl::error
 	};
 
-	for (int i = 0; i < 4; i++){
-		if (level == levels[i])
+	bool flag = false;
+
+	for(int i = 0; i < 4; i++)
+	{
+		if (filter == levels[i])
+			flag = true;
+		if (flag == true)
 			(this->*funcptr[i]) ();
 	}
+	if (flag == false)
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
