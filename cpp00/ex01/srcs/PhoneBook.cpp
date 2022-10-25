@@ -3,64 +3,104 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seungsle <seungsle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 19:40:50 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/26 14:58:48 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/25 12:42:05 by seungsle          #+#    #+#             */
+/*   Updated: 2022/10/25 16:48:56 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/PhoneBook.hpp"
 
-void	PhoneBook::add_contacts()
+void	PhoneBook::add(void)
 {
+	std::string firstName;
+	std::string lastName;
+	std::string nickName;
+	std::string phoneNumber;
+	std::string darkestSecret;
+	Contact	newContact;
 
-	for (int i = firstName; i <= darkestSecret; i++)
-	{
-		if (i == firstName)
-			std::cout << "first name : ";
-		else if (i == lastName)
-			std::cout << "last name : ";
-		else if (i == nickName)
-			std::cout << "nick name : ";
-		else if (i == phoneNumber)
-			std::cout << "phone number : ";
-		else if (i == darkestSecret)
-			std::cout << "darkest secret : ";
-		std::cin >> _info[i];
-	}
-	_contacts[_size % 8].add_contact(_info[0], _info[1], _info[2], _info[3], \
-										_info[4], _size % MAX_CAPACITY);
+	std::cout << "[Add Contact]\n";
+	std::cout << "Enter (First Name) : ";
+	std::getline(std::cin, firstName);
+	if (std::cin.eof())
+		return ;
+	std::cout << "Enter (Last Name) : ";
+	std::getline(std::cin, lastName);
+	if (std::cin.eof())
+		return ;
+	std::cout << "Enter (Nickname) : ";
+	std::getline(std::cin, nickName);
+	if (std::cin.eof())
+		return ;
+	std::cout << "Enter (PhoneNumber) : ";
+	std::getline(std::cin, phoneNumber);
+	if (std::cin.eof())
+		return ;
+	std::cout << "Enter (Darkets Secret) : ";
+	std::getline(std::cin, darkestSecret);
+	if (std::cin.eof())
+		return ;
+	newContact.addContact(firstName, lastName, nickName, phoneNumber, darkestSecret, _size % 8);
+	_contact[_size % 8] = newContact;
 	_size++;
+	return ;
 }
 
-void	PhoneBook::display_prompt()
+bool	PhoneBook::isNumber(const std::string& s)
 {
-	std::cout << "|-------------------------------------------|" << std::endl;
-	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
-	std::cout << "|-------------------------------------------|" << std::endl;
-	for (int i = 0; i < _size && i < MAX_CAPACITY; i++)
-		_contacts[i].display_contact();
-	std::cout << "|-------------------------------------------|" << std::endl;
+    std::string::const_iterator it = s.begin();
+	if (*it == '-')
+	{
+		++it;
+		return (std::isdigit(*it));
+	}
+    while (it != s.end() && std::isdigit(*it)) ++it;
+    return !s.empty() && it == s.end();
 }
 
-void	PhoneBook::search_contact()
+void	PhoneBook::search(void)
 {
-	int	index;
-	
-	PhoneBook::display_prompt();
+	std::string index;
+	int			indexInt;
+
+	std::cout << "   index  |first name| last name| nick name" << std::endl;
+	for (int i = 0; i < _size; i++)
+	{
+		if (i >= 8)
+			break ;
+		_contact[i].displayContact();
+	}
+	std::cout << "[SEARCH CONTACT]\n" << std::endl;
 	while (1)
 	{
-		std::cout << "please enter index you want to look (exit to '-1')" << std::endl;
-		std::cin >> index;
-		if (0 <= index && index < MAX_CAPACITY)
-		{
-			_contacts[index].display_specific_contact();
-		}
-		else if (-1 == index)
+		std::cout << "Enter index you want to search (if you want to exit enter `-1`) : ";
+		std::getline(std::cin, index);
+		if (std::cin.eof())
 			break ;
+		if (isNumber(index))
+		{
+			indexInt = std::stoi(index);
+		}
 		else
-			std::cout << "invalid index" << std::endl;;
+		{
+			std::cout << "invalid value" << std::endl;
+			continue ;
+		}
+		if (indexInt == -1)
+		{
+			std::cout << "[EXIT SEARCH]" << std::endl;
+			break ;
+		}
+		if (0 <= indexInt && indexInt < MAX_CAPACITY)
+		{
+			_contact[indexInt].displayContactBySearch(indexInt);
+		}
+		else
+		{
+			std::cout << "invalid value(out of bound)" << std::endl;
+		}
 	}
 }
 
@@ -71,4 +111,5 @@ PhoneBook::PhoneBook()
 
 PhoneBook::~PhoneBook()
 {
+	
 }

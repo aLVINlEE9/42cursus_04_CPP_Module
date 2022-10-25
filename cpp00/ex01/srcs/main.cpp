@@ -3,30 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seungsle <seungsle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 19:37:15 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/26 14:53:26 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/25 13:03:48 by seungsle          #+#    #+#             */
+/*   Updated: 2022/10/25 16:47:58 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/PhoneBook.hpp"
 
-int main() {
-	std::string cmd;
+int main(void)
+{
+	std::string	command;
 	PhoneBook phoneBook;
 
-	std::cout << "this is phonebook program!" << std::endl;
-	while (1) {
-		std::cout << "please put command right belowㄱ [ADD, SEARCH, EXIT]" << std::endl;
-		std::cin >> cmd;
-		if (std::cin.eof() || !cmd.compare("EXIT"))
+	std::cout << "This is PhoneBook Program\n";
+	while (1)
+	{
+		std::cout << "Please enter Commad (ADD, SEARCH, EXIT)! : ";
+		std::getline(std::cin, command);
+		if (std::cin.eof() || command == "EXIT")
 			break ;
-		else if (!cmd.compare("ADD"))
-			phoneBook.add_contacts();
-		else if (!cmd.compare("SEARCH"))
-			phoneBook.search_contact();
+		else if (command == "ADD")
+			phoneBook.add();
+		else if (command == "SEARCH")
+			phoneBook.search();
 		else
-			std::cout << "Invalid command" << std::endl;
+			std::cout << "Wrong Command!!\n";
+		if (std::cin.eof())
+			break ;
 	}
 }
+
+// cin.getline : array
+// getline : string
+// cin.get 
+// gets #include <cstdio> array

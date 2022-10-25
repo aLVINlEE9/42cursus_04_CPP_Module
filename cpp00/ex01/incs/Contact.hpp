@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seungsle <seungsle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 19:14:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/26 14:42:48 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/25 12:41:30 by seungsle          #+#    #+#             */
+/*   Updated: 2022/10/25 16:16:06 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+#ifndef CONTACT_H
+# define CONTACT_H
 
 #include <iostream>
 #include <string>
 #include <iomanip>
 
-class Contact {
-	private:
-		std::string _firstName;
-		std::string _lastName;
-		std::string _nickName;
-		std::string _phoneNumber;
-		std::string _darkestSecret;
-		int _index;
-
-	public:
-		Contact();
-		~Contact();
-		void add_contact(std::string firstName, std::string lastName, \
-								std::string nickName, std::string phoneNumber, \
-								std::string darkestSecret, int index);
-		void display_contact(void);
-		void display_specific_contact(void);
-		std::string substr_info(std::string str);
+class Contact
+{
+private:
+	int	_index;
+	std::string	_firstName;
+	std::string	_lastName;
+	std::string _phoneNumber;
+	std::string _darkestSecret;
+	std::string	_nickName;
+	
+public:
+	Contact();
+	~Contact();
+	void addContact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret, int index);
+	void displayContact(void);
+	void displayContactBySearch(int index);
+	std::string printString10(std::string string);
 };
 
 #endif
