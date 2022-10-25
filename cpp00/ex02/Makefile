@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: seungsle <seungsle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/25 19:14:28 by seungsle          #+#    #+#              #
-#    Updated: 2022/07/26 17:59:08 by seungsle         ###   ########.fr        #
+#    Created: 2022/10/25 12:23:45 by seungsle          #+#    #+#              #
+#    Updated: 2022/10/25 20:19:56 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = Account.cpp tests.cpp
+SRCS = Account.cpp test.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = c++
