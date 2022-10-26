@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seungsle <seungsle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 15:51:14 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/02 16:13:48 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/26 11:49:49 by seungsle          #+#    #+#             */
+/*   Updated: 2022/10/26 12:17:48 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/Zombie.hpp"
+#include "./Zombie.hpp"
 
-int main() {
-	std::string name[] = {"Bob", "Alice", "John", "Andy", "Peter", "Mark"};
+int main()
+{
 	Zombie zombie;
-
-	for (int i = 0; i < 6; i++)
-		zombie.randomChump(name[i]);
+	
+	zombie.randomChump("Alvin");
+	zombie.randomChump("John");
 	zombie.announce();
 }

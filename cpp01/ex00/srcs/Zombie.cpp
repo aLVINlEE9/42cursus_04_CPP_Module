@@ -3,31 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seungsle <seungsle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 15:57:54 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/02 16:12:12 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/26 11:49:54 by seungsle          #+#    #+#             */
+/*   Updated: 2022/10/26 12:13:30 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/Zombie.hpp"
+#include "./Zombie.hpp"
 
-Zombie::Zombie()
+void	Zombie::announce()
 {
-	_name = "Foo";
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie::Zombie( std::string name )
+Zombie*	Zombie::newZombie(std::string name)
+{
+	Zombie *newZombie = new Zombie(name);
+	return (newZombie);
+}
+
+void	Zombie::randomChump(std::string name)
+{
+	Zombie	*zombie;
+
+	zombie = newZombie(name);
+	zombie->announce();
+	delete zombie;
+}
+
+Zombie::Zombie(std::string name)
 {
 	_name = name;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << _name << " destroyed" << std::endl;
+	std::cout << _name << " is destructed" << std::endl;
 }
 
-void	Zombie::announce( void )
+Zombie::Zombie()
 {
-	std::cout << _name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
+	_name = "Foo";
 }
