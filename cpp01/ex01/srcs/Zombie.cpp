@@ -3,36 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seungsle <seungsle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 16:25:12 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/02 16:47:23 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/26 12:28:33 by seungsle          #+#    #+#             */
+/*   Updated: 2022/10/26 14:01:40 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/Zombie.hpp"
+#include "Zombie.hpp"
 
-Zombie::Zombie()
+void	Zombie::announce()
 {
-	_name = "Foo";
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie::Zombie( std::string name )
+void	Zombie::setName(std::string name)
 {
 	_name = name;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << _name << " destroyed" << std::endl;
+	
 }
 
-void	Zombie::announce( void )
+Zombie::Zombie()
 {
-	std::cout << _name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void	Zombie::setName( std::string name )
-{
-	_name = name;
+	
 }

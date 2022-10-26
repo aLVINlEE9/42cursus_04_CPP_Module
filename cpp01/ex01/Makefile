@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: seungsle <seungsle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/03 17:30:10 by seungsle          #+#    #+#              #
-#    Updated: 2022/08/03 17:30:11 by seungsle         ###   ########.fr        #
+#    Created: 2022/10/25 16:49:27 by seungsle          #+#    #+#              #
+#    Updated: 2022/10/26 13:55:00 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 INCFLAGS = -I$(INC_DIR)
 
-NAME = zombieHorde
+NAME = zombie
 
 SRC_DIR = srcs/
 OBJ_DIR = objs/
