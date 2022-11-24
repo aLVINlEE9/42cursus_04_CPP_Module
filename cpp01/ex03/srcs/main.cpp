@@ -5,13 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 17:41:31 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/02 18:17:01 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/29 21:14:56 by seungsle          #+#    #+#             */
+/*   Updated: 2022/11/14 18:54:10 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/HumanA.hpp"
-#include "../incs/HumanB.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {

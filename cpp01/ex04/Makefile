@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/03 17:29:39 by seungsle          #+#    #+#              #
-#    Updated: 2022/08/03 17:29:40 by seungsle         ###   ########.fr        #
+#    Created: 2022/10/25 16:49:27 by seungsle          #+#    #+#              #
+#    Updated: 2022/11/02 13:27:46 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp Filemanage.cpp ReplaceString.cpp
+SRCS = main.cpp FileManager.cpp Replace.cpp
 SRCS := $(addprefix $(SRC_DIR), $(SRCS))
 OBJS =  $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 
@@ -18,7 +18,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 INCFLAGS = -I$(INC_DIR)
 
-NAME = replaceStr
+NAME = sed
 
 SRC_DIR = srcs/
 OBJ_DIR = objs/
@@ -37,7 +37,6 @@ clean:
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -rf *.replace
 	rm -rf $(NAME)
 
 re: fclean all

@@ -5,25 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 17:41:14 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/02 18:25:32 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/29 21:15:05 by seungsle          #+#    #+#             */
+/*   Updated: 2022/11/02 18:24:51 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_CLASS_H
-# define HUMANA_CLASS_H
+#ifndef HUMAN_A_HPP
+# define HUMAN_A_HPP
 
+#include "HumanA.hpp"
 #include "Weapon.hpp"
 
 class HumanA
 {
-	private:
-		std::string _name;
-		Weapon *_weapon;
-	public:
-		HumanA( std::string name, Weapon &weapon );
-		~HumanA();
-		void attack( void );
+private:
+	std::string _name;
+	Weapon *_weapon;
+public:
+	HumanA(std::string name, Weapon &weapon);
+	HumanA();
+	~HumanA();
+	void	attack();
 };
 
 #endif

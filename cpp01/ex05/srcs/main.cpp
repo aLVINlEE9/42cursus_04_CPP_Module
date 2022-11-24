@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 16:57:33 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/03 17:25:56 by seungsle         ###   ########.fr       */
+/*   Created: 2022/11/02 14:16:22 by seungsle          #+#    #+#             */
+/*   Updated: 2022/11/02 16:08:11 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/Harl.hpp"
+#include "Harl.hpp"
 
 int main()
 {

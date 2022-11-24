@@ -5,33 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 18:35:37 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/03 16:41:55 by seungsle         ###   ########.fr       */
+/*   Created: 2022/11/01 16:30:59 by seungsle          #+#    #+#             */
+/*   Updated: 2022/11/02 13:59:43 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/FileManage.hpp"
-#include "../incs/ReplaceString.hpp"
+#include "FileManager.hpp"
+#include "Replace.hpp"
 
-int main(int argc, char **argv)
+int main(int argc, char **argv) 
 {
-	FileManage	fileManage;
-	ReplaceString replaceString;
-
-	if (argc != 4)
+	if (argc == 4)
 	{
-		std::cout << "please input [filename] [s1] [s2]" << std::endl;
-		return (1);
+		FileManager fm(argv[1]);
+		Replace rp(fm, argv[2], argv[3]);
+		rp.execute();
 	}
 	else
-	{
-		if (fileManage.inFileOpen(argv[1]) && fileManage.outFileOpen(argv[1]))
-		{
-			replaceString.replaceStr(fileManage.getInfile(), fileManage.getOutfile(), argv[2], argv[3]);
-			fileManage.closeFile();
-		}
-		else
-			return (1);
-	}
-	return (0);
+		std::cout << "Error :arguments" << std::endl;
 }

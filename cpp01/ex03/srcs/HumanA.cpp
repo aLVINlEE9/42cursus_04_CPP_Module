@@ -5,17 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 17:41:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/02 18:29:13 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/29 21:15:00 by seungsle          #+#    #+#             */
+/*   Updated: 2022/11/01 16:17:17 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/HumanA.hpp"
+#include "HumanA.hpp"
 
-HumanA::HumanA( std::string name, Weapon &weapon )
+HumanA::HumanA(std::string name, Weapon &weapon)
 {
-	_name = name;
-	_weapon = &weapon;
+	this->_name = name;
+	this->_weapon = &weapon;
+}
+
+HumanA::HumanA()
+{
+	
 }
 
 HumanA::~HumanA()
@@ -23,7 +28,7 @@ HumanA::~HumanA()
 	
 }
 
-void HumanA::attack( void )
+void	HumanA::attack()
 {
-	std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
+	std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
 }

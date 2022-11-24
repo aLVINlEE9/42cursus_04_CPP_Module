@@ -5,27 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 16:57:54 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/03 17:01:26 by seungsle         ###   ########.fr       */
+/*   Created: 2022/11/02 14:16:24 by seungsle          #+#    #+#             */
+/*   Updated: 2022/11/02 16:02:13 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_CLASS_H
-# define HARL_CLASS_H
+#ifndef HARL_HPP
+# define HARL_HPP
 
 #include <iostream>
 
 class Harl
 {
-	private:
-		void debug( void );
-		void info( void );
-		void warning( void );
-		void error( void );
-	public:
-		Harl();
-		~Harl();
-		void complain( std::string level );
+private:
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
+public:
+	Harl();
+	~Harl();
+	void	complain(std::string level);
 };
 
 #endif

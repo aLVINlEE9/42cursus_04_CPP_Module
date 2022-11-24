@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/03 17:29:48 by seungsle          #+#    #+#              #
-#    Updated: 2022/08/03 17:29:50 by seungsle         ###   ########.fr        #
+#    Created: 2022/10/25 16:49:27 by seungsle          #+#    #+#              #
+#    Updated: 2022/11/01 15:40:53 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 INCFLAGS = -I$(INC_DIR)
 
-NAME = attack
+NAME = violence
 
 SRC_DIR = srcs/
 OBJ_DIR = objs/

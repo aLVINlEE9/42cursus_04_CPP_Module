@@ -6,18 +6,18 @@
 /*   By: seungsle <seungsle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 13:03:48 by seungsle          #+#    #+#             */
-/*   Updated: 2022/10/25 16:47:58 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/10/29 15:37:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/PhoneBook.hpp"
+#include "PhoneBook.hpp"
 
 int main(void)
 {
 	std::string	command;
 	PhoneBook phoneBook;
 
-	std::cout << "This is PhoneBook Program\n";
+	std::cout << "This is PhoneBook Program" << std::endl;
 	while (1)
 	{
 		std::cout << "Please enter Commad (ADD, SEARCH, EXIT)! : ";
@@ -29,13 +29,8 @@ int main(void)
 		else if (command == "SEARCH")
 			phoneBook.search();
 		else
-			std::cout << "Wrong Command!!\n";
+			std::cout << "Wrong Command!!" << std::endl;
 		if (std::cin.eof())
 			break ;
 	}
 }
-
-// cin.getline : array
-// getline : string
-// cin.get 
-// gets #include <cstdio> array

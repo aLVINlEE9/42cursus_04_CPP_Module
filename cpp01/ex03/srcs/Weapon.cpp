@@ -5,16 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 17:41:34 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/02 18:16:51 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/29 21:14:54 by seungsle          #+#    #+#             */
+/*   Updated: 2022/11/01 15:39:16 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/Weapon.hpp"
+#include "Weapon.hpp"
 
-Weapon::Weapon( std::string type)
+Weapon::Weapon(std::string type)
 {
-	_type = type;
+	this->_type = type;
+}
+
+Weapon::Weapon()
+{
+	
 }
 
 Weapon::~Weapon()
@@ -22,12 +27,12 @@ Weapon::~Weapon()
 	
 }
 
-std::string Weapon::getType()
+const std::string &Weapon::getType()
 {
-	return (_type);
+	return (this->_type);
 }
 
-void Weapon::setType( std::string type )
+void	Weapon::setType(std::string type)
 {
-	_type = type;
+	this->_type = type;
 }

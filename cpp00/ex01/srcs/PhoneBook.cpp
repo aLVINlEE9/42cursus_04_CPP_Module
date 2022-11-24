@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 12:42:05 by seungsle          #+#    #+#             */
-/*   Updated: 2022/10/25 16:48:56 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/10/29 16:48:47 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/PhoneBook.hpp"
+#include "PhoneBook.hpp"
 
 void	PhoneBook::add(void)
 {
@@ -21,7 +21,7 @@ void	PhoneBook::add(void)
 	std::string darkestSecret;
 	Contact	newContact;
 
-	std::cout << "[Add Contact]\n";
+	std::cout << "[Add Contact]" << std::endl;
 	std::cout << "Enter (First Name) : ";
 	std::getline(std::cin, firstName);
 	if (std::cin.eof())
@@ -54,7 +54,8 @@ bool	PhoneBook::isNumber(const std::string& s)
 	if (*it == '-')
 	{
 		++it;
-		return (std::isdigit(*it));
+		if (it == s.end())
+			return (0);
 	}
     while (it != s.end() && std::isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
@@ -72,35 +73,37 @@ void	PhoneBook::search(void)
 			break ;
 		_contact[i].displayContact();
 	}
-	std::cout << "[SEARCH CONTACT]\n" << std::endl;
+	std::cout << "[SEARCH CONTACT]" << std::endl;
 	while (1)
 	{
 		std::cout << "Enter index you want to search (if you want to exit enter `-1`) : ";
 		std::getline(std::cin, index);
 		if (std::cin.eof())
 			break ;
-		if (isNumber(index))
+		std::stringstream ssInt(index);
+		if (!ssInt.fail() && isNumber(index))
 		{
-			indexInt = std::stoi(index);
+			ssInt >> indexInt;
+			if (indexInt == -1)
+			{
+				std::cout << "[EXIT SEARCH]" << std::endl;
+				break ;
+			}
+			if (0 <= indexInt && indexInt < MAX_CAPACITY)
+			{
+				_contact[indexInt].displayContactBySearch(indexInt);
+			}
+			else
+			{
+				std::cout << "invalid value(out of bound)" << std::endl;
+			}
 		}
 		else
 		{
 			std::cout << "invalid value" << std::endl;
 			continue ;
 		}
-		if (indexInt == -1)
-		{
-			std::cout << "[EXIT SEARCH]" << std::endl;
-			break ;
-		}
-		if (0 <= indexInt && indexInt < MAX_CAPACITY)
-		{
-			_contact[indexInt].displayContactBySearch(indexInt);
-		}
-		else
-		{
-			std::cout << "invalid value(out of bound)" << std::endl;
-		}
+		
 	}
 }
 

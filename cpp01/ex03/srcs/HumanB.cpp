@@ -5,29 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 17:41:27 by seungsle          #+#    #+#             */
-/*   Updated: 2022/08/02 18:31:51 by seungsle         ###   ########.fr       */
+/*   Created: 2022/10/29 21:14:58 by seungsle          #+#    #+#             */
+/*   Updated: 2022/11/14 18:54:38 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/HumanB.hpp"
+#include "HumanB.hpp"
 
-HumanB::HumanB( std::string name )
+HumanB::HumanB(std::string name)
 {
-	_name = name;
+	this->_name = name;
+	this->_weapon = NULL;
+}
+
+HumanB::HumanB()
+{
+
 }
 
 HumanB::~HumanB()
 {
-	
+
 }
 
-void HumanB::attack( void )
+void	HumanB::setWeapon(Weapon &weapon)
 {
-	std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
+	this->_weapon = &weapon;
 }
 
-void HumanB::setWeapon( Weapon &weapon )
+void	HumanB::attack()
 {
-	_weapon = &weapon;
+	if (this->_weapon == NULL)
+		std::cout << "weapon not setted" << std::endl;
+	else
+		std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
 }
